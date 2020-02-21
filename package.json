@@ -1,5 +1,5 @@
 {
-  "name": "redux-storage",
+  "name": "@paztis/redux-storage",
   "version": "4.2.0",
   "description": "Persistence layer for redux with flexible backends",
   "main": "build/index.js",
