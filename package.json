@@ -5,7 +5,12 @@
   "main": "build/index.js",
   "jsnext:main": "build-es/index.js",
   "scripts": {
-    "test": "make lint test build"
+    "build": "npm run build:cjs & npm run build:es",
+    "build:lint": "eslint src/",
+    "build:test": "cross-env BABEL_ENV=cjs mocca",
+    "build:cjs": "cross-env BABEL_ENV=cjs babel src/ --out-dir build/",
+    "build:es": "cross-env BABEL_ENV=es babel src/ --out-dir build-es/",
+    "test": "make build"
   },
   "repository": {
     "type": "git",
@@ -44,9 +49,11 @@
     "babel-polyfill": "^6.9.1",
     "babel-preset-modern-node": "^3.0.0",
     "babel-preset-stage-2": "^6.11.0",
+    "cross-env": "^5.0.0",
     "eslint": "^1.10.3",
     "eslint-config-michaelcontento": "^1.1.1",
     "eslint-plugin-mocha-only": "0.0.3",
+    "make": "^0.8.1",
     "mocca": "^1.0.3",
     "release-it": "^2.4.1"
   },
